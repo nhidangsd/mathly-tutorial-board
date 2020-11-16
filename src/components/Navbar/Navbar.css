@@ -1,0 +1,27 @@
+.NavbarItems{
+    background-color: white;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2 rem;
+}
+nav li {
+    display: inline;
+}
+
+.navbar-logo{
+    justify-self: start;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.logo-mathly{
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+}
+.navbar-bottom-line{
+    -webkit-box-shadow: 0 7px 4px -4px rgb(220, 220, 220);
+   -moz-box-shadow: 0 7px 4px -4px rgb(220, 220, 220);
+        box-shadow: 0 7px 4px -4px rgb(220, 220, 220);
+}

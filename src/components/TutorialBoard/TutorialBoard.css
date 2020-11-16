@@ -1,0 +1,31 @@
+.board{
+    background: url(./images/Lined-Paper.png);
+    width: 100vw;
+    height: 100vh; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    /* background-size: cover; */
+}
+#rcorners4 {
+    border-radius: 30px;
+    background: #E8E8E8;
+    width: 1029px;
+    height: 54px;
+}
+.containerBar{
+    
+}
+.fillerBar{
+   
+}
+.labelBar{
+    
+}
+.play-btn{
+    justify-self: center;
+
+}
