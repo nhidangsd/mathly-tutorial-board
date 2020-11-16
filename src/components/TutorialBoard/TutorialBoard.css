@@ -1,14 +1,5 @@
 .board{
-    background: url(./images/Lined-Paper.png);
-    width: 100vw;
-    height: 100vh; 
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    position: relative;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    /* background-size: cover; */
+
 }
 #rcorners4 {
     border-radius: 30px;
@@ -16,16 +7,42 @@
     width: 1029px;
     height: 54px;
 }
-.containerBar{
-    
-}
-.fillerBar{
-   
-}
-.labelBar{
-    
-}
-.play-btn{
-    justify-self: center;
 
+.container-bar{
+    height: 1.3vh;
+    width: 54vw;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.filler-bar{
+    height: 100%;
+    border-radius: inherit;
+    text-align: left;
+    transition: width 0.4s ease-in-out;
+}
+.label-bar{
+    padding: 5;
+    color: white;
+    font-weight: bold;
+}
+
+.player-control-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.previous-btn{
+    transform: scaleX(-1); 
+    margin: auto 0.5%;
+}
+
+.play-btn{
+    margin-top: 0.5rem;
+}
+
+.next-btn{
+    margin: auto 0.5%;
 }

@@ -2,4 +2,30 @@
   font-family: sans-serif;
   text-align: center;
 }
+.App{
+      /* Location of the image */
+      background: url(./components/TutorialBoard/images/Lined-Paper.png);
+
+      width: 100vw;
+      height: 100vh;
+      
+      background-attachment: fixed;
+
+      /* Background image is centered vertically and horizontally at all times */
+      background-position: center center;
+  
+      /* Background image doesn't tile */
+      background-repeat: no-repeat;
+  
+      /* This is what makes the background image rescale based
+       on the container's size */
+      background-size: cover;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+     
+      /* This is what makes the background image rescale based
+       on the container's size */
+      
+}
 

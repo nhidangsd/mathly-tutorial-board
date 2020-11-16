@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Player from './Player';
+import './TutorialBoard.css';
 
 export default function ProgressBar(props) {
   const [completed, setCompleted] = useState(props.startValue);
@@ -7,121 +8,74 @@ export default function ProgressBar(props) {
   const [steps, setSteps] = useState([]); 
 
   const containerStyles = {
-    height: 14,
-    width: 1029,
     backgroundColor: props.bgColor,
-    borderRadius: 50,
-    margin: 50
-  }
+  };
 
   const fillerStyles = {
-    height: '100%',
     width: `${completed}%`,
     backgroundColor: props.color,
-    borderRadius: 'inherit',
-    textAlign: 'right',
-    transition: 'width 0.5s ease-in-out',
-  }
+  };
 
-  const labelStyles = {
-    padding: 5,
-    color: 'white',
-    fontWeight: 'bold'
-  }
 
   let idVar;
+
   const autoplay = () => {
 
-    if(!playing){
-      setPlaying = true;
-
-      idVar = setInterval(() =>{
+    idVar = setInterval(() =>{
       
-        setCompleted(completed =>{
-            
-          if(completed >= 100){
-            clearInterval(idVar);
-            setPlaying = false;
-          }
-          else {
-            return completed + props.stepValue;
-          }
+      setCompleted(completed =>
+        (completed >= 100) ? clearInterval(idVar) : (completed + props.stepValue)
+      );
 
-        });
+    }, 1800);
 
-      }, 1800);
-    }
-    else if(playing){
-      clearInterval(idVar);
-      setPlaying = false;
-    }
-      
   };
-  // const autoplay = () => {
 
-  //   idVar = setInterval(() =>{
-  //     if(!playing){
-       
-  //       setPlaying = true;
-  //       setCompleted(completed =>{
-            
-  //         if(completed >= 100){
-  //           clearInterval(idVar);
-  //           setPlaying = false;
-  //         }
-  //         else {
-  //           return completed + props.stepValue;
-  //         }
+  const pause = () =>{
+    clearInterval(idVar);
+  }
 
-  //       }, 1800);
+  const togglePlaying = () =>{
+    setPlaying(previous =>  !previous)
+  };
 
-  //     }
-  //     else{
-  //       setPlaying = false
-  //     };
-
-  //   });
-  // };
-
-  const pause = () => {
-
+  useEffect(() =>{
+    
     if(playing){
-      clearInterval(idVar);
-      setPlaying = false;
-
+      autoplay();
     }
-  }
+    return pause;
 
-  const previous = () => {
-    setCompleted(previous => {
-      if (completed > 0){
-        return previous - props.stepValue;
-      }
-      else return previous;
-    })
-  }
+  }, [playing])
 
-  const next = () => {
-    setCompleted(previous => {
-      if (completed < 100){
-        return previous + props.stepValue;
-      }
-      else return previous;
-    })
-  }
+
+  const togglePrevious = () => {
+    setCompleted(previous => 
+      (completed > 0) ? (previous - props.stepValue) : previous
+    );
+  };
+
+  const toggleNext = () => {
+    setCompleted(previous => 
+      (completed < 100) ? (previous + props.stepValue) : previous
+    );
+  };
 
   return (
     <div>
-      <div className='ContainerBar' style={containerStyles}>
-        <div className='FilerBar' style={fillerStyles}>
-          <span className='LabelBar' style={labelStyles}>{completed}</span>
+      
+      <div className='container-bar' style={containerStyles}>
+        <div className='filler-bar' style={fillerStyles}>
+          <span className='label-bar'>{completed}</span>
         </div>
       </div>
+
       <Player 
-        previous= {previous} 
-        play= {autoplay}
-        pause= {pause} 
-        next= {next} 
+        completed= {completed < 100? false : true}
+        playing = {playing}
+        togglePrevious= {togglePrevious} 
+        togglePlaying= {togglePlaying}
+        toggleNext= {toggleNext} 
       />
     </div>
   );
