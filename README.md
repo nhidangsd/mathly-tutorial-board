@@ -1,4 +1,4 @@
-# mathly-itutorial-board
+# mathly-tutorial-board
 
 ### `npm start`
 
