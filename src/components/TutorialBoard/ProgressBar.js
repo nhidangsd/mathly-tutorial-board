@@ -64,11 +64,11 @@ export default function ProgressBar(props) {
   };
 
   return (
-    <div>
+    <div className='container-controller'>
       
       <div className='container-bar' style={containerStyles}>
         <div className='filler-bar' style={fillerStyles}>
-          <span className='label-bar'>{props.completed}</span>
+          
         </div>
       </div>
 

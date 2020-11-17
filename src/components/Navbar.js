@@ -11,15 +11,16 @@ export default function Navbar(){
     return(
         <div className='navbar-bottom-line'>
             <nav className='NavbarItems'>
-            <h1 className='navbar-logo'>
-                <a href='https://www.mathly.io/'>
-                    <img src={logo} className='logo-mathly' alt='mathl'/>
-                </a> 
-            </h1>
+         
             <div className='menu-icon' onClick={handleClick}>
                 
             </div>
             <ul className='menu-items'>
+                <li className='navbar-logo'>
+                    <a href='https://www.mathly.io/'>
+                        <img src={logo} className='logo-mathly' alt='mathl'/>
+                    </a> 
+                </li>
                 {MenuItems.map(item=>
                     <li key={item.objectID}>
                         <a href={item.url} className={item.cName}>

@@ -7,7 +7,15 @@
     width: 1029px;
     height: 54px;
 }
-
+.tutorial-step{
+    border-radius: 30px;
+    font-size: xx-large;
+}
+.container-controller{
+    position:absolute;
+    bottom: 5vw;
+    width: 100vw;
+}
 .container-bar{
     height: 1.3vh;
     width: 54vw;

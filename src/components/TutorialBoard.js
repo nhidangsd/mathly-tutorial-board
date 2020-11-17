@@ -25,16 +25,10 @@ export default function TutorialBoard(props){
   const stepValue = 100 / example.steps;
   return(
     <div className='board'>
-      {/* <TutorialContent
+      <TutorialContent
         solutions= {solutions}
-      /> */}
-      <div key={solutions}>
-            {solutions && solutions.map(step =>(
-                <li>
-                    {`${step[0]}: ${step[1]}`}
-                </li>
-            ))}
-        </div>
+      />
+      
       <ProgressBar 
         startValue = {completed}
         stepValue = {stepValue} 

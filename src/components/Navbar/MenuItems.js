@@ -7,12 +7,7 @@ const MenuItems = [
         url: '#',
         cName: 'nav-links',
     },
-    {
-        title: 'Logout',
-        icon: home,
-        url: '#',
-        cName: 'nav-links',
-    },
+  
 
 ]
 
