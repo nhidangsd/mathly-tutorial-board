@@ -2,19 +2,37 @@ import React , {useState}from 'react';
 import './TutorialBoard.css'
 
 export default function TutorialContent({solutions}){
-    const promt= solutions[0];
-
+    const [promtText, promtMath]= solutions[0];
     const solutionSteps = solutions.slice(1);
+
     return(
         <div key={solutions} className='tutorial-step'>
-            <li>
-                    {`${promt[0]} ${promt[1]}`}
+            <li className= 'promt-wrapper'> 
+                <span className='promt'>
+                    <span className='promt-text'>
+                        {`${promtText}:`}
+                    </span>
+                    <span className= 'promt-math'>
+                        {` ${promtMath}`}
+                    </span>
+                </span>
+                
+                <span className='tutorial-username'>
+                        Tommy Pickles
+                </span>
             </li>
-            {solutionSteps && solutionSteps.map(step =>(
-                <li>
-                    {`#${step[0]} ${step[1]}`}
+            <div className='step-wrapper'>
+            {solutionSteps && solutionSteps.map(([text='', math='']) =>(
+                <li className= 'step'>
+                    <span className='step-text'>
+                        {`#${text}`}
+                    </span>
+                    <span className= 'step-math'>
+                        {`${math}`}
+                    </span>
                 </li>
             ))}
+            </div>
             
         </div>
     );

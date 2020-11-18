@@ -1,24 +1,33 @@
 .NavbarItems{
     background-color: white;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 5.8vh;
+    min-height: 40px;
+   
     font-size: 1.2 rem;
+    display: flex;
+    flex-direction: row;
 }
 nav li {
     display: inline;
 }
 
 .navbar-logo{
-    justify-self: start;
-    margin-left: 10px;
+    
     cursor: pointer;
 }
 
 .logo-mathly{
-    margin-left: 0.5rem;
+
+    position: absolute;
+    left: 1vw;
+    top: .9vh;
     font-size: 1.6rem;
+}
+.nav-links{
+    position: absolute;
+    align-items: center;
+    right: 10vw;
+    background-color: grey;
 }
 .navbar-bottom-line{
     -webkit-box-shadow: 0 7px 4px -4px rgb(220, 220, 220);

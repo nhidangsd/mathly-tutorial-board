@@ -1,5 +1,9 @@
 .board{
-
+    padding-top: 5.5vw;
+    height: 84vh;
+    max-height: 1040px;
+    display: flex;
+    flex-direction: column;
 }
 #rcorners4 {
     border-radius: 30px;
@@ -8,13 +12,56 @@
     height: 54px;
 }
 .tutorial-step{
-    border-radius: 30px;
-    font-size: xx-large;
+    position: relative;
+    font-size: 2vw;
+    height: 65vh;
+    font-family: 'Permanent Marker', cursive;  
 }
-.container-controller{
-    position:absolute;
-    bottom: 5vw;
-    width: 100vw;
+.tutorial-username{
+    position: absolute;
+    bottom: .3vw;
+    right: 3vw;
+    font-size: 3vw;  
+}
+.promt-wrapper{
+    position: relative;
+    text-align: left;
+    padding-left: 14vw;
+   
+}
+.promt{
+    font-size: 2.3vw;
+}
+.promt-text{
+   
+}
+.promt-math{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.step-wrapper{
+    padding-top: 3.6vw;
+}
+.step{
+    display: flex;
+    flex-direction: row;
+    padding: 1vh;
+    border-color: hotpink;
+}
+.step-text{
+    position: relative;
+    left: 26vw; 
+
+}
+.step-math{
+    position: absolute;
+    left: 50vw;
+    font-family: 'Noto Sans TC', sans-serif;
+ 
+}
+
+.tutorial-controller{
+    justify-content: center;
 }
 .container-bar{
     height: 1.3vh;
@@ -39,7 +86,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .previous-btn{

@@ -25,10 +25,13 @@ export default function TutorialBoard(props){
   const stepValue = 100 / example.steps;
   return(
     <div className='board'>
+      <div className='tutorial-content'>
       <TutorialContent
         solutions= {solutions}
       />
+      </div>
       
+      <div className='tutorial-controller'>
       <ProgressBar 
         startValue = {completed}
         stepValue = {stepValue} 
@@ -41,6 +44,7 @@ export default function TutorialBoard(props){
         color= '#EC6057' 
         bgColor= '#5F1F20' 
       />
+      </div>
           
     </div>
   );
