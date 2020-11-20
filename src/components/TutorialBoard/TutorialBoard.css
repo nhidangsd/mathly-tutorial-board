@@ -1,5 +1,5 @@
 .board{
-    padding-top: 5.5vw;
+    padding-top: 3.8vw;
     height: 84vh;
     max-height: 1040px;
     display: flex;
@@ -40,13 +40,14 @@
 }
 
 .step-wrapper{
-    padding-top: 3.6vw;
+    padding-top: 4vw;
 }
 .step{
     display: flex;
     flex-direction: row;
     padding: 1vh;
-    border-color: hotpink;
+    
+    position: relative;
 }
 .step-text{
     position: relative;
@@ -57,7 +58,8 @@
     position: absolute;
     left: 50vw;
     font-family: 'Noto Sans TC', sans-serif;
- 
+    font-size: 1.8vw;
+    top: 0.7vw;
 }
 
 .tutorial-controller{

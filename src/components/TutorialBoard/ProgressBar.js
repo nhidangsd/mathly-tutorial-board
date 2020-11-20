@@ -4,7 +4,7 @@ import Player from './Player';
 import './TutorialBoard.css';
 
 export default function ProgressBar(props) {
-  const [step, setStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
   const containerStyles = {
     backgroundColor: props.bgColor,
   };
@@ -15,42 +15,14 @@ export default function ProgressBar(props) {
   };
 
 
-  let idVar;
-
-  const autoplay = () => {
-
-    idVar = setInterval(() =>{
-      props.setCompleted(completed =>
-        (completed >= 100) ? clearInterval(idVar) : (completed + props.stepValue)
-      );
-    }, 1800);
-
-  };
-
-  const pause = () =>{
-    clearInterval(idVar);
-  }
-
   const togglePlaying = () =>{
     props.setPlaying(previous =>  !previous)
   };
-  
-  useEffect(() =>{
-    
-    if(props.playing){
-      
-      
-      autoplay();
-    }
-    return pause;
-
-  }, [props.playing]);
-
 
   const togglePrevious = () => {
     if(props.completed > 0){
       props.setCompleted(previous => (previous - props.stepValue));
-      setStep(prev => prev-1);
+      setCurrentStep(prev => prev-1);
       props.setSolutions(-1);
     }
   };
@@ -58,10 +30,50 @@ export default function ProgressBar(props) {
   const toggleNext = () => {
     if(props.completed < 100){
       props.setCompleted(previous => (previous + props.stepValue));
-      setStep(prev => prev+1);
-      props.setSolutions(step);
+      setCurrentStep(prev => prev+1);
+      props.setSolutions(currentStep);
     }
   };
+  
+  useEffect(() =>{
+    let idVar;
+    // const autoplay = () => {
+
+    //   idVar = setInterval(() =>{
+    //     props.setCompleted(completed =>
+    //       (completed >= 100) ? clearInterval(idVar) : (completed + props.stepValue)
+    //     );
+    //   }, 1800);
+
+    // };
+
+    const autoplay = () => {
+
+      idVar = setInterval(() =>{
+
+        if(props.completed < 100){
+            props.setCompleted(previous => (previous + props.stepValue));
+            setCurrentStep(prev => prev+1);
+            props.setSolutions(currentStep);
+        }else{
+          pause();
+        }
+        
+      }, 1800);
+
+    };
+
+    const pause = () =>{
+      clearInterval(idVar);
+    }
+    
+    if(props.playing){
+      autoplay();
+    }
+    return pause;
+
+  }, [props, currentStep]);
+
 
   return (
     <div className='container-controller'>

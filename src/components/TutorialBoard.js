@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import RoundedBox from './TutorialBoard/RoundedBox'
 import ProgressBar from './TutorialBoard/ProgressBar'
-import Player from './TutorialBoard/Player';
 import './TutorialBoard/TutorialBoard.css'
 import example from './TutorialBoard/tutorialExamples'
 import TutorialContent from './TutorialBoard/TutorialContent';
@@ -22,7 +21,7 @@ export default function TutorialBoard(props){
     );
   }
 
-  const stepValue = 100 / example.steps;
+  const stepValue = 100 / example.solution.length;
   return(
     <div className='board'>
       <div className='tutorial-content'>

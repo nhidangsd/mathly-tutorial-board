@@ -18,16 +18,21 @@ export default function Navbar(){
             <ul className='menu-items'>
                 <li className='navbar-logo'>
                     <a href='https://www.mathly.io/'>
-                        <img src={logo} className='logo-mathly' alt='mathl'/>
+                        <img src={logo} className='logo-mathly' alt='mathly'/>
                     </a> 
                 </li>
+                <span className='nav-links'>
                 {MenuItems.map(item=>
                     <li key={item.objectID}>
                         <a href={item.url} className={item.cName}>
-                            <img src={item.icon} alt={item.title}></img>
+                        { item.icon
+                            ? <img src={item.icon?item.icon:item.text} alt={item.title}></img>
+                            : <span>{item.text}</span>
+                        }    
                         </a>
                     </li>
                 )}
+                </span>
             </ul>
             
             </nav>
