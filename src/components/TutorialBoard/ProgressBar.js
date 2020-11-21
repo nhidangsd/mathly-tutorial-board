@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { preProcessFile } from 'typescript';
 import Player from './Player';
 import './TutorialBoard.css';
 
 export default function ProgressBar(props) {
-  const [currentStep, setCurrentStep] = useState(0);
   const containerStyles = {
     backgroundColor: props.bgColor,
   };
@@ -22,7 +20,7 @@ export default function ProgressBar(props) {
   const togglePrevious = () => {
     if(props.completed > 0){
       props.setCompleted(previous => (previous - props.stepValue));
-      setCurrentStep(prev => prev-1);
+      props.setCurrentStep(prev => prev-1);
       props.setSolutions(-1);
     }
   };
@@ -30,8 +28,8 @@ export default function ProgressBar(props) {
   const toggleNext = () => {
     if(props.completed < 100){
       props.setCompleted(previous => (previous + props.stepValue));
-      setCurrentStep(prev => prev+1);
-      props.setSolutions(currentStep);
+      props.setCurrentStep(prev => prev+1);
+      props.setSolutions(props.currentStep);
     }
   };
   
@@ -53,8 +51,8 @@ export default function ProgressBar(props) {
 
         if(props.completed < 100){
             props.setCompleted(previous => (previous + props.stepValue));
-            setCurrentStep(prev => prev+1);
-            props.setSolutions(currentStep);
+            props.setCurrentStep(prev => prev+1);
+            props.setSolutions(props.currentStep);
         }else{
           pause();
         }
@@ -72,7 +70,7 @@ export default function ProgressBar(props) {
     }
     return pause;
 
-  }, [props, currentStep]);
+  }, [props]);
 
 
   return (

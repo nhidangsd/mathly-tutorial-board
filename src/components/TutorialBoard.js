@@ -10,6 +10,7 @@ export default function TutorialBoard(props){
   const [completed, setCompleted] = useState(0); 
   let [playing, setPlaying] = useState(false); 
   const [solutions, setSolutions] = useState([example.promt]); 
+  const [currentStep, setCurrentStep] = useState(0);
 
   const updateCompleted = (val) => setCompleted(val);
   const updatePlaying = (val) => setPlaying(val);
@@ -21,11 +22,14 @@ export default function TutorialBoard(props){
     );
   }
 
+  const updateCurrentStep = (val) => setCurrentStep(val)
+
   const stepValue = 100 / example.solution.length;
   return(
     <div className='board'>
       <div className='tutorial-content'>
       <TutorialContent
+        currentStep = {currentStep}
         solutions= {solutions}
       />
       </div>
@@ -39,6 +43,8 @@ export default function TutorialBoard(props){
         playing= {playing}
         setPlaying= {updatePlaying}
         setSolutions= {updateSolutions}
+        currentStep = {currentStep}
+        setCurrentStep = {updateCurrentStep}
         height= '5px' 
         color= '#EC6057' 
         bgColor= '#5F1F20' 
